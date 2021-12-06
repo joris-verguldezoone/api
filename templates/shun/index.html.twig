@@ -17,19 +17,23 @@
         <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/api/templates/shun/index.html.twig'|file_link(0) }}">templates/shun/index.html.twig</a></code></li>
     </ul>
 </div>
+    <form action="{{ path('ping') }}" method="POST">
+        <button class="btn btn-primary">Ping !
+        </button>
+    </form>
 {% block javascripts %}
- <script>
+<script>
             // The subscriber subscribes to updates for the https://example.com/users/dunglas topic
             // and to any topic matching https://example.com/books/{id}
             const url = new URL('https://localhost/.well-known/mercure');
-            // url.searchParams.append('topic', 'http://127.0.0.1:8000');
-            url.searchParams.append('topic', 'https://example.com/books/{id}');
+            url.searchParams.append('topic', 'https://localhost/.well-known/mercure/ui/');
+            // url.searchParams.append('topic', 'https://example.com/books/{id}');
             // The URL class is a convenient way to generate URLs such as https://localhost/.well-known/mercure?topic=https://example.com/books/{id}&topic=https://example.com/users/dunglas
 
             const eventSource = new EventSource(url);
 
             // The callback will be called every time an update is published
             eventSource.onmessage = e => console.log(e); // do something with the payload
- </script>
+</script>
 {% endblock %}
 {% endblock %}

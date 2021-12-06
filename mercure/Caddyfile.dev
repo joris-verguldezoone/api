@@ -7,6 +7,8 @@
 
 log
 
+
+
 route {
 	redir / /.well-known/mercure/ui/
 	encode zstd gzip
@@ -27,7 +29,9 @@ route {
 		# Extra directives
 		{$MERCURE_EXTRA_DIRECTIVES}
 	}
-
+    {
+    auto_https off
+    }
 	respond /healthz 200
 
 	respond "Not Found" 404

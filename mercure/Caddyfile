@@ -6,7 +6,9 @@
 {$SERVER_NAME:localhost}
 
 log
-
+{
+    auto_https off
+    }
 route {
 	encode zstd gzip
 
